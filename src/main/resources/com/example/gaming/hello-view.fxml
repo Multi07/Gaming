@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gaming.HelloController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="18.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="290.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="19.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="64.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="193.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="353.0" minWidth="10.0" prefWidth="17.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="129.0" minHeight="0.0" prefHeight="38.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="267.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="267.0" minHeight="6.0" prefHeight="42.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="348.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="348.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <MenuBar GridPane.columnSpan="6">
+        <menus>
+          <Menu mnemonicParsing="false" text="Soubor">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="O Aplikaci">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ListView fx:id="ListViewHracu" prefHeight="319.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="10" />
+      <Label prefHeight="17.0" prefWidth="158.0" text="Seznam Hráčů" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label text="Detaily Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <TextField fx:id="LoginSearch" prefHeight="25.0" prefWidth="215.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <Label text="Login:" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" onAction="#ShowPlayer" prefHeight="25.0" prefWidth="368.0" text="Zobrazit" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+      <Button mnemonicParsing="false" onAction="#CreatePlayer" prefHeight="25.0" prefWidth="445.0" text="Přidat Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+      <Button mnemonicParsing="false" onAction="#DeletePlayer" prefHeight="25.0" prefWidth="378.0" text="Smazat Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="10" />
+      <Button mnemonicParsing="false" onAction="#EditPlayer" prefHeight="25.0" prefWidth="450.0" text="Upravit Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="11" />
+      <Label prefHeight="18.0" prefWidth="61.0" text="Login:" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <Label text="Level:" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+      <Label text="Role:" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+      <Label text="Email:" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+      <Label text="Registrace:" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+      <Label fx:id="PlayerLevel" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+      <Label fx:id="PlayerLogin" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+      <Label fx:id="PlayerRole" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+      <Label fx:id="PlayerEmail" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+      <Label fx:id="RegistrationDate" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+      <Label alignment="CENTER" prefHeight="17.0" prefWidth="612.0" text="\@2025 Gasos Jakub Kašák &amp; Jaroslav Judl" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowIndex="12" />
+   </children>
+</GridPane>
