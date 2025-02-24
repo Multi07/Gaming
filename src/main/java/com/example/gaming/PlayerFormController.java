@@ -73,10 +73,10 @@ public class PlayerFormController {
         }
         else { newEmail = email.getText(); }
 
-        if (registrationDate.getText().isEmpty()){
+        if (registrationDate.toString().isEmpty()){
             newRegistrationDate = Players.getSelectionModel().getSelectedItem().registrationDate;
         }
-        else { newRegistrationDate = registrationDate.getText(); }
+        else { newRegistrationDate = registrationDate.toString(); }
 
         Players.getItems().set(index, new Player(newName, newLevel, newPlayerClass, newEmail, newRegistrationDate));
     }
