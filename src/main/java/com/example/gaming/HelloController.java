@@ -42,7 +42,28 @@ public class HelloController {
     }
     @FXML
     private void EditPlayer(){
-        // TODO: Implement this
+        String userInput= "";
+        String nickInput = "";
+        String phoneInput = "";
+
+        int index = contactListView.getSelectionModel().getSelectedIndex();
+
+        if (name.getText().isEmpty()){
+            userInput = contactListView.getSelectionModel().getSelectedItem().getName();
+        }else {
+            userInput = name.getText();
+        }
+        if (nick.getText().isEmpty()){
+            nickInput = contactListView.getSelectionModel().getSelectedItem().getNick();
+        } else {
+            nickInput = nick.getText();
+        }
+        if (phone.getText().isEmpty()){
+            phoneInput = contactListView.getSelectionModel().getSelectedItem().getPhone();
+        } else {
+            phoneInput = phone.getText();
+        }
+        contactListView.getItems().set(index, new Contact(userInput, nickInput, phoneInput));
     }
     @FXML
     private void ShowPlayer(){
