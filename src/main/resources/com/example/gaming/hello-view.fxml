@@ -43,7 +43,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <ListView fx:id="ListViewHracu" prefHeight="319.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="10" />
+      <ListView fx:id="Players" prefHeight="319.0" prefWidth="287.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="10" />
       <Label prefHeight="17.0" prefWidth="158.0" text="Seznam Hráčů" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label text="Detaily Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1" />
       <TextField fx:id="LoginSearch" prefHeight="25.0" prefWidth="215.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
