@@ -42,32 +42,44 @@ public class HelloController {
     }
     @FXML
     private void EditPlayer(){
-        String userInput= "";
-        String nickInput = "";
-        String phoneInput = "";
+        String newName = "";
+        int newLevel = 0;
+        String newPlayerClass = "";
+        String newEmail = "";
+        String newRegistrationDate = "";
 
-        int index = contactListView.getSelectionModel().getSelectedIndex();
+        int index = Players.getSelectionModel().getSelectedIndex();
 
         if (name.getText().isEmpty()){
-            userInput = contactListView.getSelectionModel().getSelectedItem().getName();
-        }else {
-            userInput = name.getText();
+            newName = Players.getSelectionModel().getSelectedItem().name;
         }
-        if (nick.getText().isEmpty()){
-            nickInput = contactListView.getSelectionModel().getSelectedItem().getNick();
-        } else {
-            nickInput = nick.getText();
+        else { newName = name.getText(); }
+
+        if (level.getText().isEmpty()){
+            newLevel = Players.getSelectionModel().getSelectedItem().level;
         }
-        if (phone.getText().isEmpty()){
-            phoneInput = contactListView.getSelectionModel().getSelectedItem().getPhone();
-        } else {
-            phoneInput = phone.getText();
+        else { newLevel = Integer.parseInt(level.getText()); }
+
+        if (playerClass.getText().isEmpty()){
+            newPlayerClass = Players.getSelectionModel().getSelectedItem().playerClass;
         }
-        contactListView.getItems().set(index, new Contact(userInput, nickInput, phoneInput));
+        else { newPlayerClass = playerClass.getText(); }
+
+        if (email.getText().isEmpty()){
+            newEmail = Players.getSelectionModel().getSelectedItem().email;
+        }
+        else { newEmail = email.getText(); }
+
+        if (registrationDate.getText().isEmpty()){
+            newRegistrationDate = Players.getSelectionModel().getSelectedItem().registrationDate;
+        }
+        else { newRegistrationDate = registrationDate.getText(); }
+
+        Players.getItems().set(index, new Player(newName, newLevel, newPlayerClass, newEmail, newRegistrationDate));
     }
     @FXML
     private void ShowPlayer(){
-        // TODO: Implement this
+        Players.getSelectionModel().getSelectedItem().email = this.email.getText();
     }
 
     private void makeMockData(){
