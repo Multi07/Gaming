@@ -28,11 +28,14 @@
       <Label text="Uživatelské Jméno:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <TextField fx:id="name" prefHeight="25.0" prefWidth="337.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
       <Label text="Level:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Spinner fx:id="level" GridPane.columnIndex="2" GridPane.rowIndex="2" min="1" max="100" initialValue="1" />
+      <Spinner fx:id="levelSpinner" GridPane.columnIndex="2" GridPane.rowIndex="2" min="1" max="100" initialValue="1" />
       <Label text="Role:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <RadioButton fx:id="playerClass" mnemonicParsing="false" text="Bojovník" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <RadioButton fx:id="playerClass" mnemonicParsing="false" text="Mág" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <RadioButton fx:id="playerClass" mnemonicParsing="false" text="Střelec" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <RadioButton fx:id="Bojovnik" mnemonicParsing="false" text="Bojovník" GridPane.columnIndex="2" GridPane.rowIndex="3">
+       <toggleGroup>
+       <ToggleGroup fx:id="roleToggleGroup"/>
+   </toggleGroup></RadioButton>
+      <RadioButton fx:id="Mage" mnemonicParsing="false" text="Mág" GridPane.columnIndex="2" GridPane.rowIndex="4" toggleGroup="$roleToggleGroup"/>
+      <RadioButton fx:id="Archer" mnemonicParsing="false" text="Střelec" GridPane.columnIndex="2" GridPane.rowIndex="5" toggleGroup="$roleToggleGroup"/>
       <Label text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
       <TextField fx:id="email" GridPane.columnIndex="2" GridPane.rowIndex="6" />
       <Label text="Datum Registrace:" GridPane.columnIndex="1" GridPane.rowIndex="7" />

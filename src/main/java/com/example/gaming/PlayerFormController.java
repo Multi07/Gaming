@@ -1,6 +1,5 @@
 package com.example.gaming;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -15,13 +14,19 @@ public class PlayerFormController {
     }
 
     @FXML
-    private RadioButton playerClass;
+    private RadioButton Bojovnik;
+    @FXML
+    private RadioButton Mage;
+    @FXML
+    private RadioButton Archer;
     @FXML
     private TextField email;
     @FXML
     private DatePicker registrationDate;
+    private String playerClass;
     @FXML
     private Player player;
+    @FXML
     private Spinner<Integer> levelSpinner;
 
     private void initialize() {
@@ -30,6 +35,15 @@ public class PlayerFormController {
     }
 
     public void createplayer() {
+        if (Bojovnik.isSelected()) {
+            playerClass = "Bojovnik";
+        }
+        else if (Mage.isSelected()) {
+            playerClass = "Mág";
+        }
+        else if (Archer.isSelected()) {
+            playerClass = "Střelec";
+        }
         this.player = new Player(this.name.getText(),
                 (int) Double.parseDouble(
                         this.level
@@ -37,12 +51,10 @@ public class PlayerFormController {
                                 .replaceAll(",", ".")
                                 .replaceAll(" ", "")
                 ),
-                this.playerClass.getText(),
+                this.Bojovnik.getText(),
                 this.email.getText(),
                 this.registrationDate.toString());
     }
-
-
     @FXML
     private void EditPlayer(){
         String newName = "";
@@ -73,13 +85,15 @@ public class PlayerFormController {
         }
         else { newEmail = email.getText(); }
 
-        if (registrationDate.toString().isEmpty()){
+        if (registrationDate.getText().isEmpty()){
             newRegistrationDate = Players.getSelectionModel().getSelectedItem().registrationDate;
         }
-        else { newRegistrationDate = registrationDate.toString(); }
+        else { newRegistrationDate = registrationDate.getText(); }
 
         Players.getItems().set(index, new Player(newName, newLevel, newPlayerClass, newEmail, newRegistrationDate));
     }
+
+
 
 
 
