@@ -38,7 +38,7 @@ public class HelloController {
 
     @FXML
     private void DeletePlayer(){
-        // TODO: Implement this
+        Players.getItems().remove(Players.getSelectionModel().getSelectedItem());
     }
     @FXML
     private void EditPlayer(){
@@ -56,6 +56,7 @@ public class HelloController {
         }
     }
     public void initialize(){
-        makeMockData();
+            Players.getItems().add(new Player("name", 1,"class", "@"+".cz", "2021.03.04"));
+
     }
 }
