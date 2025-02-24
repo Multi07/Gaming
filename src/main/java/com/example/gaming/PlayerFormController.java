@@ -2,10 +2,7 @@ package com.example.gaming;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.SpinnerValueFactory;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class PlayerFormController {
     @FXML
@@ -25,11 +22,11 @@ public class PlayerFormController {
     private DatePicker registrationDate;
     @FXML
     private Player player;
-    private Spinner<Integer> level;
+    private Spinner<Integer> levelSpinner;
 
     private void initialize() {
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1);
-        spinner.setValueFactory(valueFactory);
+        levelSpinner.setValueFactory(valueFactory);
     }
 
     public void createplayer() {
@@ -42,7 +39,7 @@ public class PlayerFormController {
                 ),
                 this.playerClass.getText(),
                 this.email.getText(),
-                this.registrationDate.getText());
+                this.registrationDate.toString());
     }
 
 
