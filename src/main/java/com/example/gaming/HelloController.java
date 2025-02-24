@@ -1,9 +1,16 @@
 package com.example.gaming;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class HelloController {
     @FXML
@@ -20,20 +27,19 @@ public class HelloController {
     private TextField registrationDate;
 
     @FXML
-    private void CreatePlayer(){
-        Player player = new Player(
-                this.name.getText(),
-                (int) Double.parseDouble(
-                        this.level
-                                .getText()
-                                .replaceAll(",", ".")
-                                .replaceAll(" ", "")
-                ),
-                this.playerClass.getText(),
-                this.email.getText(),
-                this.registrationDate.getText());
-
-        this.Players.getItems().add(player);
+    private void CreatePlayer() throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("CreatePlayer.fxml"));
+        GridPane form = loader.load();
+        PlayerFormController controller = loader.getController();
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Create Player");
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
+        dialogStage.setScene(new Scene(form));
+        dialogStage.showAndWait();
+        Player player =
+        if (player != null) {
+            Players.getItems().add(player);
+        }
     }
 
     @FXML
@@ -79,7 +85,7 @@ public class HelloController {
     }
     @FXML
     private void ShowPlayer(){
-        Players.getSelectionModel().getSelectedItem().email = this.email.getText();
+        // TODO: Implement this
     }
 
     private void makeMockData(){
@@ -89,7 +95,9 @@ public class HelloController {
         }
     }
     public void initialize(){
-            Players.getItems().add(new Player("name", 1,"class", "@"+".cz", "2021.03.04"));
+        Players.getItems().add(new Player("Kaiy", 100,"Mág", "jibladfgjknb@seznam"+".cz", "2021.03.04"));
+        Players.getItems().add(new Player("Karel", 10,"Bojovník", "oikjadfgjio@email"+".cz", "2021.08.04"));
+        Players.getItems().add(new Player("iojmpfrg", 1,"Střelec", "dsgh@"+"ihdg.cz", "2024.03.04"));
 
     }
 }

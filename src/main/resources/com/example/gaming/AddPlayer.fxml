@@ -26,17 +26,17 @@
    <children>
       <Label text="Vyplňte Následující Údaje" GridPane.columnIndex="1" GridPane.columnSpan="2" />
       <Label text="Uživatelské Jméno:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField prefHeight="25.0" prefWidth="337.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+      <TextField fx:id="name" prefHeight="25.0" prefWidth="337.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1" />
       <Label text="Level:" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Spinner GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Spinner fx:id="level" GridPane.columnIndex="2" GridPane.rowIndex="2" />
       <Label text="Role:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <RadioButton mnemonicParsing="false" text="Bojovník" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <RadioButton mnemonicParsing="false" text="Mág" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <RadioButton mnemonicParsing="false" text="Střelec" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <RadioButton fx:id="playerClass" mnemonicParsing="false" text="Bojovník" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <RadioButton fx:id="playerClass" mnemonicParsing="false" text="Mág" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <RadioButton fx:id="playerClass" mnemonicParsing="false" text="Střelec" GridPane.columnIndex="2" GridPane.rowIndex="5" />
       <Label text="Email:" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <TextField GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <TextField fx:id="email" GridPane.columnIndex="2" GridPane.rowIndex="6" />
       <Label text="Datum Registrace:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-      <DatePicker GridPane.columnIndex="2" GridPane.rowIndex="7" />
+      <DatePicker fx:id="registrationDate" GridPane.columnIndex="2" GridPane.rowIndex="7" />
       <Button mnemonicParsing="false" text="Uložit" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
       <Button mnemonicParsing="false" text="Zrušit" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
    </children>
