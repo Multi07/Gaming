@@ -1,6 +1,10 @@
 package com.example.gaming;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 
 public class PlayerFormController {
@@ -8,17 +12,28 @@ public class PlayerFormController {
     private TextField name;
     @FXML
     private TextField level;
+
+    public Player getPlayer() {
+        return player;
+    }
+
     @FXML
-    private TextField playerClass;
+    private RadioButton playerClass;
     @FXML
     private TextField email;
     @FXML
-    private TextField registrationDate;
-
+    private DatePicker registrationDate;
     @FXML
-    private Player getPlayer() {
-        return new Player(
-                this.name.getText(),
+    private Player player;
+    private Spinner<Integer> level;
+
+    private void initialize() {
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1);
+        spinner.setValueFactory(valueFactory);
+    }
+
+    public void createplayer() {
+        this.player = new Player(this.name.getText(),
                 (int) Double.parseDouble(
                         this.level
                                 .getText()
@@ -27,9 +42,9 @@ public class PlayerFormController {
                 ),
                 this.playerClass.getText(),
                 this.email.getText(),
-                this.registrationDate.getText()
-        );
+                this.registrationDate.getText());
     }
+
 
     @FXML
     private void EditPlayer(){
@@ -68,5 +83,7 @@ public class PlayerFormController {
 
         Players.getItems().set(index, new Player(newName, newLevel, newPlayerClass, newEmail, newRegistrationDate));
     }
+
+
 
 }

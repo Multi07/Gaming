@@ -18,7 +18,7 @@ public class HelloController {
 
     @FXML
     private void CreatePlayer() throws IOException {
-        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("CreatePlayer.fxml"));
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("AddPlayer.fxml"));
         GridPane form = loader.load();
         PlayerFormController controller = loader.getController();
         Stage dialogStage = new Stage();
@@ -26,7 +26,7 @@ public class HelloController {
         dialogStage.initModality(Modality.APPLICATION_MODAL);
         dialogStage.setScene(new Scene(form));
         dialogStage.showAndWait();
-        Player player =
+        Player player = controller.getPlayer();
         if (player != null) {
             Players.getItems().add(player);
         }
@@ -43,8 +43,8 @@ public class HelloController {
     }
 
     public void initialize(){
-        Players.getItems().add(new Player("Kaiy", 100,"Mág", "jibladfgjknb@seznam"+".cz", "2021.03.04"));
-        Players.getItems().add(new Player("Karel", 10,"Bojovník", "oikjadfgjio@email"+".cz", "2021.08.04"));
+        Players.getItems().add(new Player("Kaiy", 100,"Mág", "jibladfgjknb@"+"seznam.cz", "2021.03.04"));
+        Players.getItems().add(new Player("Karel", 10,"Bojovník", "oikjadfgjio@"+"email.cz", "2021.08.04"));
         Players.getItems().add(new Player("iojmpfrg", 1,"Střelec", "dsgh@"+"ihdg.cz", "2024.03.04"));
 
     }
