@@ -15,18 +15,21 @@ public class PlayerFormController {
     @FXML
     private TextField registrationDate;
 
-    Player player = new Player(
-            this.name.getText(),
-            (int) Double.parseDouble(
-                    this.level
-                            .getText()
-                            .replaceAll(",", ".")
-                            .replaceAll(" ", "")
-            ),
-            this.playerClass.getText(),
-            this.email.getText(),
-            this.registrationDate.getText()
-    );
+    @FXML
+    private Player getPlayer() {
+        return new Player(
+                this.name.getText(),
+                (int) Double.parseDouble(
+                        this.level
+                                .getText()
+                                .replaceAll(",", ".")
+                                .replaceAll(" ", "")
+                ),
+                this.playerClass.getText(),
+                this.email.getText(),
+                this.registrationDate.getText()
+        );
+    }
 
     @FXML
     private void EditPlayer(){
