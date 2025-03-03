@@ -51,50 +51,14 @@ public class PlayerFormController {
                 ),
                 this.Bojovnik.getText(),
                 this.email.getText(),
-                this.registrationDate.toString()
+                this.registrationDate.getValue()
         );
     }
+
     /*
-    @FXML
-    private void EditPlayer(){
-        String newName = "";
-        int newLevel = 0;
-        String newPlayerClass = "";
-        String newEmail = "";
-        String newRegistrationDate = "";
-
-        int index = Players.getSelectionModel().getSelectedIndex();
-
-        if (name.getText().isEmpty()){
-            newName = Players.getSelectionModel().getSelectedItem().name;
-        }
-        else { newName = name.getText(); }
-
-        if (level.getText().isEmpty()){
-            newLevel = Players.getSelectionModel().getSelectedItem().level;
-        }
-        else { newLevel = Integer.parseInt(level.getText()); }
-
-        if (playerClass.getText().isEmpty()){
-            newPlayerClass = Players.getSelectionModel().getSelectedItem().playerClass;
-        }
-        else { newPlayerClass = playerClass.getText(); }
-
-        if (email.getText().isEmpty()){
-            newEmail = Players.getSelectionModel().getSelectedItem().email;
-        }
-        else { newEmail = email.getText(); }
-
-        if (registrationDate.getText().isEmpty()){
-            newRegistrationDate = Players.getSelectionModel().getSelectedItem().registrationDate;
-        }
-        else { newRegistrationDate = registrationDate.getText(); }
-
-        Players.getItems().set(index, new Player(newName, newLevel, newPlayerClass, newEmail, newRegistrationDate));
-    }
-    */
 
 
+*/
 
 
 

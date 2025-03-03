@@ -51,7 +51,7 @@
       <Button mnemonicParsing="false" onAction="#ShowPlayer" prefHeight="25.0" prefWidth="368.0" text="Zobrazit" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
       <Button mnemonicParsing="false" onAction="#CreatePlayer" prefHeight="25.0" prefWidth="445.0" text="Přidat Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="9" />
       <Button mnemonicParsing="false" onAction="#DeletePlayer" prefHeight="25.0" prefWidth="378.0" text="Smazat Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="10" />
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="450.0" text="Upravit Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="11" />
+      <Button mnemonicParsing="false" onAction="#EditPlayer" prefHeight="25.0" prefWidth="450.0" text="Upravit Hráče" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="11" />
       <Label prefHeight="18.0" prefWidth="61.0" text="Login:" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="4" />
       <Label text="Level:" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       <Label text="Role:" GridPane.columnIndex="3" GridPane.rowIndex="6" />
