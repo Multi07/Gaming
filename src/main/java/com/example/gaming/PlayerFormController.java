@@ -44,17 +44,17 @@ public class PlayerFormController {
         else if (Archer.isSelected()) {
             playerClass = "Střelec";
         }
-        this.player = new Player(this.name.getText(),
-                (int) Double.parseDouble(
-                        this.level
-                                .getText()
-                                .replaceAll(",", ".")
-                                .replaceAll(" ", "")
+        this.player = new Player(
+                this.name.getText(),
+                Integer.parseInt(
+                    this.levelSpinner.getValue().toString()
                 ),
                 this.Bojovnik.getText(),
                 this.email.getText(),
-                this.registrationDate.toString());
+                this.registrationDate.toString()
+        );
     }
+    /*
     @FXML
     private void EditPlayer(){
         String newName = "";
@@ -92,6 +92,7 @@ public class PlayerFormController {
 
         Players.getItems().set(index, new Player(newName, newLevel, newPlayerClass, newEmail, newRegistrationDate));
     }
+    */
 
 
 
