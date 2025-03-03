@@ -2,8 +2,10 @@ package com.example.gaming;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 public class PlayerFormController {
+    boolean isEditMode;
     @FXML
     private TextField name;
     @FXML
@@ -44,22 +46,33 @@ public class PlayerFormController {
         else if (Archer.isSelected()) {
             playerClass = "Střelec";
         }
-        this.player = new Player(
-                this.name.getText(),
-                Integer.parseInt(
-                    this.levelSpinner.getValue().toString()
-                ),
-                this.Bojovnik.getText(),
-                this.email.getText(),
-                this.registrationDate.getValue()
-        );
+        if (isEditMode) {
+            if (name.getText().isEmpty()||playerClass.isEmpty()||email.getText().isEmpty()||registrationDate.getValue() == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Please fill all the fields");
+                alert.showAndWait();
+            }
+            player.setPlayerClass(playerClass);
+            player.setEmail(email.getText());
+            player.setRegistrationDate(String.valueOf(registrationDate.getValue()));
+            player.setLevel(Integer.parseInt(levelSpinner.getValue().toString()));
+            player.setName(name.getText());
+        } else {
+            this.player = new Player(name.getText(), Integer.parseInt(levelSpinner.getValue().toString()), playerClass, email.getText(), registrationDate.getValue());
+        }
+    }
+    public void onCancel() {
+        Stage stage = (Stage) name.getScene().getWindow();
+        stage.close();
     }
 
-    /*
+    public void setEditMode(boolean editMode) {
+        isEditMode = editMode;
+    }
 
-
-*/
-
-
-
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }
