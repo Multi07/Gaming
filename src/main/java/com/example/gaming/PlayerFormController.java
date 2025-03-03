@@ -14,6 +14,8 @@ public class PlayerFormController {
     public Player getPlayer() {
         return player;
     }
+    @FXML
+    ToggleGroup roleToggleGroup;
 
     @FXML
     private RadioButton Bojovnik;
@@ -37,6 +39,13 @@ public class PlayerFormController {
     }
 
     public void createplayer() {
+        if (name.getText().isEmpty()||playerClass.isEmpty()||email.getText().isEmpty()||registrationDate.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all the fields");
+            alert.showAndWait();
+        }
         if (Bojovnik.isSelected()) {
             playerClass = "Bojovnik";
         }
@@ -47,16 +56,9 @@ public class PlayerFormController {
             playerClass = "Střelec";
         }
         if (isEditMode) {
-            if (name.getText().isEmpty()||playerClass.isEmpty()||email.getText().isEmpty()||registrationDate.getValue() == null) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText(null);
-                alert.setContentText("Please fill all the fields");
-                alert.showAndWait();
-            }
             player.setPlayerClass(playerClass);
             player.setEmail(email.getText());
-            player.setRegistrationDate(String.valueOf(registrationDate.getValue()));
+            player.setRegistrationDate(registrationDate.getValue());
             player.setLevel(Integer.parseInt(levelSpinner.getValue().toString()));
             player.setName(name.getText());
         } else {
@@ -73,6 +75,21 @@ public class PlayerFormController {
     }
 
     public void setPlayer(Player player) {
-        this.player = player;
+        if (isEditMode) {
+            name.setText(player.getName());
+            levelSpinner.getValueFactory().setValue(player.getLevel());
+            RadioButton selectedRole = null;
+            for (Toggle toggle : roleToggleGroup.getToggles()) {
+                if (((RadioButton)  toggle).getText().equals(player.getPlayerClass())) {
+                    selectedRole = (RadioButton) toggle;
+                    break;
+                }
+            }
+            if (selectedRole != null) {
+                selectedRole.setSelected(true);
+            }
+            email.setText(player.getEmail());
+            registrationDate.setValue(player.getRegistrationDate());
+        }
     }
 }

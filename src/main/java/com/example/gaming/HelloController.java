@@ -1,5 +1,6 @@
 package com.example.gaming;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,6 +21,18 @@ public class HelloController {
     LocalDate date = LocalDate.of(2020, 1, 8);
     LocalDate date2 = LocalDate.of(2021, 8, 4);
     LocalDate date3 = LocalDate.of(2020, 3, 4);
+    @FXML
+    private Label PlayerLogin;
+    @FXML
+    private Label PlayerLevel;
+    @FXML
+    private Label PlayerRole;
+    @FXML
+    private Label PlayerEmail;
+    @FXML
+    private Label RegistrationDate;
+    @FXML
+    private TextField LoginSearch;
 
     @FXML
     private void CreatePlayer() throws IOException {
@@ -44,7 +57,23 @@ public class HelloController {
 
     @FXML
     private void ShowPlayer(){
-        // TODO: Implement this
+        Player selectedPlayer = Players.getSelectionModel().getSelectedItem();
+        String searchName = LoginSearch.getText();
+        for (Player player : Players.getItems()) {
+            if (player.getName().equalsIgnoreCase(searchName)) {
+                selectedPlayer = player;
+            }
+        }
+        PlayerLogin.setText(selectedPlayer.getName());
+        PlayerLevel.setText(String.valueOf(selectedPlayer.getLevel()));
+        PlayerRole.setText(selectedPlayer.getPlayerClass());
+        PlayerEmail.setText(selectedPlayer.getEmail());
+        RegistrationDate.setText(String.valueOf(selectedPlayer.getRegistrationDate()));
+
+    }
+    @FXML
+    public void Close() {
+        Platform.exit();
     }
     @FXML
     private void EditPlayer() throws IOException {
@@ -76,9 +105,5 @@ public class HelloController {
         Players.getItems().add(new Player("Karel", 10,"Bojovník", "oikjadfgjio@"+"email.cz", date2));
         Players.getItems().add(new Player("Petr", 1,"Střelec", "dsgh@"+"ihdg.cz", date));
 
-    }
-
-    public boolean isEditMode() {
-        return isEditMode;
     }
 }

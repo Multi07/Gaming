@@ -8,7 +8,7 @@ public class Player {
     int level;
     String playerClass;
     String email;
-    String registrationDate;
+    LocalDate registrationDate;
 
     @Override
     public String toString() {
@@ -20,7 +20,7 @@ public class Player {
         this.level = level;
         this.playerClass = playerClass;
         this.email = email;
-        this.registrationDate = String.valueOf(registrationDate);
+        this.registrationDate = registrationDate;
     }
 
     public void setName(String name) {
@@ -39,7 +39,27 @@ public class Player {
         this.email = email;
     }
 
-    public void setRegistrationDate(String registrationDate) {
+    public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public String getPlayerClass() {
+        return playerClass;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public LocalDate getRegistrationDate() {
+        return registrationDate;
     }
 }

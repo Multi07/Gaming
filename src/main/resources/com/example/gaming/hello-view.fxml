@@ -33,7 +33,7 @@
           <Menu mnemonicParsing="false" text="Soubor">
             <items>
                   <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#Close" text="Close" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="O Aplikaci">
@@ -57,8 +57,8 @@
       <Label text="Role:" GridPane.columnIndex="3" GridPane.rowIndex="6" />
       <Label text="Email:" GridPane.columnIndex="3" GridPane.rowIndex="7" />
       <Label text="Registrace:" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-      <Label fx:id="PlayerLevel" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-      <Label fx:id="PlayerLogin" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+      <Label fx:id="PlayerLogin" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+      <Label fx:id="PlayerLevel" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="4" />
       <Label fx:id="PlayerRole" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="6" />
       <Label fx:id="PlayerEmail" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="7" />
       <Label fx:id="RegistrationDate" text="Label" GridPane.columnIndex="4" GridPane.rowIndex="8" />
