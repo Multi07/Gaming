@@ -12,7 +12,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return MessageFormat.format("{0}, {1}, {2}, {3}, {4}", name, level, playerClass, email, registrationDate);
+        return MessageFormat.format("{0}", name);
     }
 
     Player(String name, int level, String playerClass, String email, LocalDate registrationDate){
