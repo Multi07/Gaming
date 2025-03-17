@@ -39,31 +39,34 @@ public class PlayerFormController {
     }
 
     public void createplayer() {
-        if (name.getText().isEmpty()||playerClass.isEmpty()||email.getText().isEmpty()||registrationDate.getValue() == null) {
+        if (name.getText().isEmpty()|| email.getText().isEmpty()||registrationDate.getValue() == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText(null);
             alert.setContentText("Please fill all the fields");
             alert.showAndWait();
         }
-        if (Bojovnik.isSelected()) {
-            playerClass = "Bojovnik";
-        }
-        else if (Mage.isSelected()) {
-            playerClass = "Mág";
-        }
-        else if (Archer.isSelected()) {
-            playerClass = "Střelec";
-        }
+        RadioButton selectedRole = (RadioButton) roleToggleGroup.getSelectedToggle();
         if (isEditMode) {
-            player.setPlayerClass(playerClass);
+            player.setPlayerClass(selectedRole.getText());
             player.setEmail(email.getText());
             player.setRegistrationDate(registrationDate.getValue());
             player.setLevel(Integer.parseInt(levelSpinner.getValue().toString()));
             player.setName(name.getText());
+            selectedRole = null;
+            for (Toggle toggle : roleToggleGroup.getToggles()) {
+                if (((RadioButton) toggle).getText().equals(player.getPlayerClass())) {
+                    selectedRole = (RadioButton) toggle;
+                    break;
+                }
+            }
+            if (selectedRole != null) {
+                selectedRole.setSelected(true);
+            }
         } else {
-            this.player = new Player(name.getText(), Integer.parseInt(levelSpinner.getValue().toString()), playerClass, email.getText(), registrationDate.getValue());
+            this.player = new Player(name.getText(), Integer.parseInt(levelSpinner.getValue().toString()), selectedRole.getText(), email.getText(), registrationDate.getValue());
         }
+        onCancel();
     }
     public void onCancel() {
         Stage stage = (Stage) name.getScene().getWindow();
@@ -75,6 +78,7 @@ public class PlayerFormController {
     }
 
     public void setPlayer(Player player) {
+        this.player = player;
         if (isEditMode) {
             name.setText(player.getName());
             levelSpinner.getValueFactory().setValue(player.getLevel());
